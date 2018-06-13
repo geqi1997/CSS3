@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>同心圆弧旋转 loader 特效</title>
+		<style>
+			html,body,.box{
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: #000;
+			}
+			.box{
+				width: 10em;
+				height: 10em;
+				font-size: 20px;
+				border-width:0.4em;
+				border-style: solid;
+				border-radius: 50%;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-top-color: red;
+				border-bottom-color: blue;
+				position: relative;
+				animation: xz 4s ease-in-out infinite alternate;
+			}
+			.box::before{
+				content: '';
+				position: absolute;
+				width: 70%;
+				height: 70%;
+				border-width:0.4em;
+				border-style: solid;
+				border-radius: 50%;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-top-color: orange;
+				border-bottom-color: cyan;
+				animation: xz 4s ease-in-out infinite alternate;
+			    animation-duration: 8s;
+			}
+			.box::after{
+				content: '';
+				position: absolute;
+				width: 40%;
+				height: 40%;
+				border-width:0.4em;
+				border-style: solid;
+				border-radius: 50%;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				border-top-color: yellow;
+				border-bottom-color: limegreen;
+				animation: xz 4s ease-in-out infinite alternate;
+				animation-duration: 16s;
+			}
+			@keyframes xz{
+				from{
+					transform: rotate(0);
+				}
+				to{
+					transform: rotate(1440deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
