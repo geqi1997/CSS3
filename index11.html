@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文字断开的交互特效</title>
+		<style>
+			html,body{
+				display: flex;
+				height: 100%;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(brown,sandybrown);
+			}
+			.box{
+				font-size: 5em;
+				font-family: "arial black";
+				position: relative;	
+				color: transparent;
+			}
+			.box::after,.box::before{
+				content: attr(data-text);
+				position: absolute;
+				left:0;
+				top:0;
+			     transition: 0.2s;
+				color: lightyellow;
+			}
+			.box::before{
+				clip-path: polygon(0 0,60% 0,30% 100%,0 100%);
+			}
+			.box::after{
+				clip-path: polygon(60% 0,100% 0,100% 100%,30% 100%);
+			}
+			.box:hover::before{
+				top: -0.05em;
+				left: -0.15em;
+				transform: rotate(-5deg);
+			}
+			.box:hover::after{
+				top: 0.05em;
+				left: 0.15em;
+				transform: rotate(5deg);
+			}	
+		</style>
+	</head>
+	<body>
+		<div class="box" data-text="BREAK">BREAK</div>
+	</body>
+</html>
